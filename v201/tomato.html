@@ -1,0 +1,51 @@
+<!--
+ * @Author: Tina Huang
+ * @Date: 2023-01-12 11:08:13
+ * @LastEditors: Tina Huang
+ * @LastEditTime: 2023-01-29 14:00:25
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    #div {
+        /* margin-top: 200px;
+        margin-left: 200px;
+        width: 100px;
+        height: 100px;
+        position: relative;
+        overflow: hidden; */
+    }
+    #circle {
+        position: relative;
+        right: 0;
+        top: 0;
+        width: 200px;
+        height: 200px;
+        border-radius: 50%;
+        background: blue;
+        overflow: hidden;
+    }
+    #d1 {
+        transform: skewY(135deg);
+        transform-origin: 0 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: red;
+        width: 100px;
+        height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="div">
+    <div id="circle">
+      <div id="d1"></div>
+    </div>
+  </div>
+</body>
+</html>

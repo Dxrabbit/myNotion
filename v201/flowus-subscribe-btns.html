@@ -1,0 +1,102 @@
+<!--
+ * @Author: Tina Huang
+ * @Date: 2024-03-25 17:16:36
+ * @LastEditors: Tina Huang
+ * @LastEditTime: 2024-03-25 17:31:18
+ * @Description: 
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="../lib/global.js?v=20240313"></script>
+  <script src="../lib/crypto-js.min.js"></script>
+  <title>custom button</title>
+  <style>
+    html,
+    body {
+      font-family: serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    a {
+      display: block;
+      width: 100%;
+      height: 30px;
+      border-radius: 15px;
+      background-color: #DC7EBD;
+      border-color: transparent;
+      outline: none;
+      text-decoration: none;
+      color: #ffffff;
+      padding: 0 10px;
+      line-height: 30px;
+      display: flex;
+      align-items: center;
+      font-size: 16px;
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    a.large {
+      height: 40px;
+      line-height: 40px;
+      border-radius: 20px;
+      padding: 0 15px;
+      font-size: 18px;
+    }
+
+    .icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 5px;
+    }
+
+    a.large .icon {
+      width: 25px;
+      height: 25px;
+    }
+
+    html[theme="dark"],
+    html[theme="dark"] body {
+      background-color: #191919;
+    }
+  </style>
+</head>
+
+<body>
+  <a href="https://flowus.cn/httishere/share/fdfe7d91-e11f-499e-aff7-3232691d6e8b?promotionChannel=Red_fwj_44" id="btn"
+    target="_blank" class="large">
+    <img class="icon" id="icon" src="./logos/flowus.png"></img>
+    <span class="label" id="label">我要订阅</span>
+  </a>
+  <script>
+    const params = getAllParams(CryptoJS);
+    if (!params) return
+    handleDarkMode(params);
+    console.log(params)
+    let url = params.link,
+      icon = params.icon,
+      name = params.btn_name,
+      size = params.size,
+      bg_color = params.bg_color,
+      font_color = params.font_color;
+    let btn = document.getElementById('btn'),
+      label = document.getElementById("label"),
+      icon_url = `./logos/${icon}.png`;
+    if (size && size === 'large') {
+      btn.classList.add('large');
+    }
+    btn.setAttribute("href", url);
+    name && (label.innerHTML = name);
+    icon && document.getElementById("icon").setAttribute("src", icon_url);
+    btn.style.backgroundColor = bg_color;
+    btn.style.color = font_color;
+  </script>
+</body>
+
+</html>
